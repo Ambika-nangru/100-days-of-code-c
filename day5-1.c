@@ -1,18 +1,26 @@
 #include <stdio.h>
+#include <math.h>
 
 int main() {
-    int a, b;
+    float principal, rate, time;
+    float simpleInterest, compoundInterest, amount;
 
-    printf("Enter two numbers: ");
-    scanf("%d %d", &a, &b);
+    printf("Enter principal: ");
+    scanf("%f", &principal);
 
-    a = a + b;
-    b = a - b;
-    a = a - b;
+    printf("Enter rate: ");
+    scanf("%f", &rate);
 
-    printf("After swapping:\n");
-    printf("First number = %d\n", a);
-    printf("Second number = %d\n", b);
+    printf("Enter time: ");
+    scanf("%f", &time);
+
+    simpleInterest = (principal * rate * time) / 100;
+
+    amount = principal * pow((1 + rate / 100), time);
+    compoundInterest = amount - principal;
+
+    printf("Simple Interest = %.2f\n", simpleInterest);
+    printf("Compound Interest = %.2f\n", compoundInterest);
 
     return 0;
 }
