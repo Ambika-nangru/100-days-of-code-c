@@ -1,0 +1,20 @@
+
+#include <stdio.h>
+
+enum Role {
+    ADMIN = 1,
+    USER,
+    GUEST
+};
+
+int main() {
+    enum Role role;
+
+    char *names[] = {"ADMIN", "USER", "GUEST"};
+
+    for (role = ADMIN; role <= GUEST; role++) {
+        printf("%s = %d\n", names[role - 1], role);
+    }
+
+    return 0;
+}
