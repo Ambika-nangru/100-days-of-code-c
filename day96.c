@@ -1,48 +1,53 @@
-
 #include <stdio.h>
 
-struct Date {
+// Date structure
+struct Date
+{
     int day;
     int month;
     int year;
 };
 
-struct Employee {
+// Employee structure
+struct Employee
+{
     int id;
     char name[50];
     float salary;
-    struct Date joiningDate;
+    struct Date joiningDate;  // Nested structure
 };
 
-int main() {
-    struct Employee emp;
+int main()
+{
+    struct Employee e;
 
     // Input employee details
     printf("Enter Employee ID: ");
-    scanf("%d", &emp.id);
+    scanf("%d", &e.id);
 
     printf("Enter Employee Name: ");
-    scanf("%49s", emp.name);
+    scanf("%49s", e.name);
 
-    printf("Enter Salary: ");
-    scanf("%f", &emp.salary);
+    printf("Enter Employee Salary: ");
+    scanf("%f", &e.salary);
 
     printf("Enter Joining Date (DD MM YYYY): ");
     scanf("%d %d %d",
-          &emp.joiningDate.day,
-          &emp.joiningDate.month,
-          &emp.joiningDate.year);
+          &e.joiningDate.day,
+          &e.joiningDate.month,
+          &e.joiningDate.year);
 
     // Display employee details
     printf("\n--- Employee Details ---\n");
-    printf("Employee ID: %d\n", emp.id);
-    printf("Employee Name: %s\n", emp.name);
-    printf("Salary: %.2f\n", emp.salary);
 
-    printf("Joining Date: %02d-%02d-%d\n",
-           emp.joiningDate.day,
-           emp.joiningDate.month,
-           emp.joiningDate.year);
+    printf("Employee ID: %d\n", e.id);
+    printf("Employee Name: %s\n", e.name);
+    printf("Employee Salary: %.2f\n", e.salary);
+
+    printf("Joining Date: %02d-%02d-%04d\n",
+           e.joiningDate.day,
+           e.joiningDate.month,
+           e.joiningDate.year);
 
     return 0;
 }
